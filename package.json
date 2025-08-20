@@ -12,9 +12,15 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf dist && tsc",
+    "format": "npx prettier --check .",
+    "format:fix": "npx prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "sort": "sort-package-json",
+    "start": "NODE_ENV=default nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -26,10 +32,28 @@
     "globals": "^16.3.0",
     "morgan": "^1.10.1",
     "nconf": "^0.13.0",
+    "open": "^10.2.0",
+    "querystring": "^0.2.1",
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3"
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "@types/nconf": "^0.10.7",
+    "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "depcheck": "^1.4.7",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "prettier-plugin-handlebars": "^0.0.1",
+    "sort-package-json": "^3.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }

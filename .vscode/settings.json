@@ -11,23 +11,4 @@
     "source.fixAll": "always",
     "source.fixAll.eslint": "always"
   },
-  "cSpell.words": [
-    "accountid",
-    "apiauthcode",
-    "apimode",
-    "clientid",
-    "currencycode",
-    "customerid",
-    "jurisdictionid",
-    "lblrc",
-    "merchantid",
-    "MYRTLEBEACH",
-    "NAICS",
-    "paymentmethod",
-    "paymentmode",
-    "paymentus",
-    "Processesd",
-    "transactionamount",
-    "transactionid"
-  ]
 }
