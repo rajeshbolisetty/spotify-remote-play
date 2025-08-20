@@ -15,16 +15,16 @@ export async function triggerPlayListOnDevice(
 
     const { devices } = await getDevices(accessToken);
 
-    const iphone = devices.find(
+    const device = devices.find(
       (item: any) => item.name === spotify.deviceName,
     );
 
-    if (!iphone) {
+    if (!device) {
       res.sendStatus(200);
       return;
     }
 
-    await transferPlayBack(iphone.id, accessToken);
+    await transferPlayBack(device.id, accessToken);
 
     const { items } = await getPlayLists(accessToken);
 
@@ -32,7 +32,7 @@ export async function triggerPlayListOnDevice(
       (item: any) => item.name === spotify.playListName,
     );
 
-    await playPlaylist(accessToken, iphone.id, firstPlayList.id);
+    await playPlaylist(accessToken, device.id, firstPlayList.id);
 
     res.sendStatus(200);
   } catch (error) {
