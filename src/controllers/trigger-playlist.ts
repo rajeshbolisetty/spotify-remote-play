@@ -16,11 +16,13 @@ export async function triggerPlayListOnDevice(
     const { devices } = await getDevices(accessToken);
 
     const device = devices.find(
-      (item: any) => item.name === spotify.deviceName,
+      (item: any) => item.name.toLowerCase() === spotify.deviceName?.toLowerCase(),
     );
 
     if (!device) {
-      res.sendStatus(200);
+      res.status(200).send({
+        message: 'Device not found'
+      });
       return;
     }
 
@@ -34,7 +36,9 @@ export async function triggerPlayListOnDevice(
 
     await playPlaylist(accessToken, device.id, firstPlayList.id);
 
-    res.sendStatus(200);
+    res.status(200).send({
+      message: 'Successfully played'
+    });
   } catch (error) {
     next(error);
   }
