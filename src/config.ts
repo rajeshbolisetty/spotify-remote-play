@@ -13,7 +13,6 @@ const configs = {
       refreshToken: process.env.REFRESH_TOKEN,
       deviceName: process.env.DEVICE_NAME,
       playListName: process.env.PLAYLIST_NAME,
-
       endPoints: {
         getToken: 'https://accounts.spotify.com/api/token',
         devices: 'https://api.spotify.com/v1/me/player/devices',
