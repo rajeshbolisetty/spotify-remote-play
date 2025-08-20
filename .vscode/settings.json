@@ -1,0 +1,33 @@
+{
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
+  },
+  "cSpell.words": [
+    "accountid",
+    "apiauthcode",
+    "apimode",
+    "clientid",
+    "currencycode",
+    "customerid",
+    "jurisdictionid",
+    "lblrc",
+    "merchantid",
+    "MYRTLEBEACH",
+    "NAICS",
+    "paymentmethod",
+    "paymentmode",
+    "paymentus",
+    "Processesd",
+    "transactionamount",
+    "transactionid"
+  ]
+}
