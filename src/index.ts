@@ -17,6 +17,7 @@ setupLogging(app);
 app.use('/api', apiRouter);
 apiRouter.get('/health', getHealthStatus);
 apiRouter.post('/trigger-playlist', jsonParser, triggerPlayListOnDevice);
+apiRouter.post('/pause-playback', jsonParser, triggerPlayListOnDevice);
 
 // Error handling middleware
 apiRouter.use(errorHandler);

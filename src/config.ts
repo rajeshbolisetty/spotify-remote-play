@@ -19,6 +19,7 @@ const configs = {
         transferPlayback: 'https://api.spotify.com/v1/me/player',
         getPlayLists: 'https://api.spotify.com/v1/me/playlists',
         playPlayList: 'https://api.spotify.com/v1/me/player/play',
+        stopPlayback: 'https://api.spotify.com/v1/me/player/pause'
       },
     },
   },

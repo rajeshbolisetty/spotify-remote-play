@@ -44,6 +44,35 @@ export async function triggerPlayListOnDevice(
   }
 }
 
+export async function stopSpotifyPlayOnDevice(
+  req: Request,
+  res: Response,
+  next: NextFunction,) {
+  try {
+    const accessToken = await getAccessTokenFromRefresh();
+
+    const { devices } = await getDevices(accessToken);
+
+    const device = devices.find(
+      (item: any) => item.name.toLowerCase() === spotify.deviceName?.toLowerCase(),
+    );
+
+    if (!device) {
+      res.status(200).send({
+        message: 'Device not found'
+      });
+      return;
+    }
+
+    await stopPlayback(accessToken, device.id)
+
+    res.sendStatus(204)
+  }
+  catch (error) {
+    next(error)
+  }
+}
+
 async function getAccessTokenFromRefresh(): Promise<string> {
   assert(spotify.refreshToken);
   const body = new URLSearchParams({
@@ -118,6 +147,22 @@ async function playPlaylist(
     {
       context_uri: `spotify:playlist:${playlistId}`,
     },
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+}
+
+async function stopPlayback(accessToken: string, deviceId: string) {
+  const url = `${spotify.endPoints.stopPlayback}?device_id=${encodeURIComponent(
+    deviceId,
+  )}`;
+
+  await axios.put(
+    url,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
