@@ -22,6 +22,7 @@ const configs = {
       },
     },
   },
+  development: {}
 };
 
 nconf
