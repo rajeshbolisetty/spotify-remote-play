@@ -66,7 +66,9 @@ export async function stopSpotifyPlayOnDevice(
 
     await stopPlayback(accessToken, device.id)
 
-    res.sendStatus(204)
+    res.status(200).send({
+      message: 'Successfully paused'
+    });
   }
   catch (error) {
     next(error)
